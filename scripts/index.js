@@ -47,8 +47,20 @@ function displayInfo()
     if (teamList.value == teamList[i].value) 
     {
         teamInfo.innerHTML = "You selected " + tName + "( " + tCode + " )" +  " who plays in " + tPlays
-
     }
 }
 return false;
 }
+
+/* option.value = "blankTeam" = "";
+else if (selectedValue == "blankTeam"){
+    document.getElementById("teamInfo").innerHTML = "";
+}
+else if (selectedValue == "blankTeam")
+{teamInfo.innerHTML = ""}
+
+let blankTeam = document.createElement("blankTeam");
+blankTeam.innerHTML = "--- Select A Team ---";
+teamList.appendChild(blankTeam);
+
+document.getElementById("") */
