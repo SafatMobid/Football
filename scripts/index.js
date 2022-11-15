@@ -14,42 +14,44 @@ window.onload = function () {
 }
 
 
-function teamslistDropdown()
-{
+function teamslistDropdown() {
     const teamList = document.getElementById("teamList")
-    let blankTeam = document.createElement("blankTeam");
+    let blankTeam = document.createElement("option");
     blankTeam.value = "";
     blankTeam.textContent = "--- Select A Team ---"
     teamList.appendChild(blankTeam)
- 
-    for (let i = 0; i < teams.length; i++) 
-    {
-    let tName = teams[i].name
-    let tCode = teams[i].code
-    let tPlays = teams[i].plays
-    
-    let option = new Option (tName, tCode); //+ tCode); can add this to bring both name and code to menu 
-    
-    teamList.appendChild(option);
+
+    let teamsLength = teams.length
+    for (let i = 0; i < teamsLength; i++) {
+        let tName = teams[i].name
+        let tCode = teams[i].code
+        let tPlays = teams[i].plays
+
+        let option = document.createElement("option");
+        option.value = tCode;
+        option.textContent = tName;
+
+        /* let option = new Option (tName, tCode); //+ tCode); can add this to bring both name and code to menu 
+         */
+        teamList.appendChild(option);
     }
 }
 
-function displayInfo()
-{   
+function displayInfo() {
+    const teamList = document.getElementById("teamList")
     let teamInfo = document.getElementById("teamInfo")
-    
-    for (let i = 0; i < teams.length; i++) 
-    {
-    let tName = teams[i].name
-    let tCode = teams[i].code
-    let tPlays = teams[i].plays
 
-    if (teamList.value == teamList[i].value) 
-    {
-        teamInfo.innerHTML = "You selected " + tName + "( " + tCode + " )" +  " who plays in " + tPlays
+    for (let i = 0; i < teams.length; i++) {
+ 
+        if (teamList.value == teams[i].code) {
+            let tName = teams[i].name
+            let tCode = teams[i].code
+            let tPlays = teams[i].plays
+            teamInfo.innerHTML = "You selected " + tName + "( " + tCode + " )" + " who plays in " + tPlays
+        }
+        
     }
-}
-return false;
+    return false;
 }
 
 /* option.value = "blankTeam" = "";
